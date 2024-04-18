@@ -9,18 +9,9 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/top_divider_1"
         android:layout_width="match_parent"
-        android:layout_height="12dp"
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="#040303"
-        android:foregroundTint="#000000"
-        android:visibility="visible" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="12dp"
+        android:layout_height="24dp"
         android:background="?android:attr/listDivider"
         android:backgroundTint="#040303"
         android:foregroundTint="#000000"
