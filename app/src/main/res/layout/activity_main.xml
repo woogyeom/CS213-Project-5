@@ -8,6 +8,24 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#040303"
+        android:foregroundTint="#000000"
+        android:visibility="visible" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#040303"
+        android:foregroundTint="#000000"
+        android:visibility="visible" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
