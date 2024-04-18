@@ -3,10 +3,20 @@ package rucafe.ordermanager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,8 +34,18 @@ public class DonutFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private RecyclerView recyclerView;
+    private DonutAdapter adapter;
+
+    private final OrderList orderList = OrderList.getInstance();
+    private static List<Donut> selectedDonuts = new ArrayList<>();
+
     public DonutFragment() {
         // Required empty public constructor
+    }
+
+    public static List<Donut> getSelectedDonuts() {
+        return selectedDonuts;
     }
 
     /**
@@ -43,6 +63,7 @@ public class DonutFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+        selectedDonuts = new ArrayList<>();
         return fragment;
     }
 
@@ -58,7 +79,46 @@ public class DonutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_donut, container, false);
+        View view = inflater.inflate(R.layout.fragment_donut, container, false);
+
+        recyclerView = view.findViewById(R.id.donut_options);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        ArrayList<String> donutOptions = new ArrayList<>();
+        for (DonutType donutType : DonutType.values()) {
+            String[] flavors = donutType.getFlavors();
+            donutOptions.addAll(Arrays.asList(flavors));
+        }
+
+        adapter = new DonutAdapter(donutOptions);
+        adapter.setSubtotalTextView(view.findViewById(R.id.subtotal));
+        recyclerView.setAdapter(adapter);
+
+        TextView subtotalTextView = view.findViewById(R.id.subtotal);
+        Button button = view.findViewById(R.id.add_to_order);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Test", Toast.LENGTH_SHORT).show();
+                Order curOrder = orderList.getCurOrder();
+                for (Donut selectedDonut : selectedDonuts) {
+                    if (selectedDonut.getQuantity() > 0) {
+                        if (curOrder.find(selectedDonut) == null) {
+                            curOrder.addItem(selectedDonut);
+                        } else {
+                            curOrder.find(selectedDonut).setQuantity(curOrder.find(selectedDonut).getQuantity() + selectedDonut.getQuantity());
+                        }
+                    }
+                }
+                for (MenuItem menuItem : curOrder.getItems()) {
+                    Toast.makeText(getContext(), menuItem.toString(), Toast.LENGTH_SHORT).show();
+                }
+                selectedDonuts.clear();
+                adapter.resetSpinners();
+            }
+        });
+
+        return view;
     }
 }

@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/top_divider_1"
+        android:id="@+id/top_divider"
         android:layout_width="match_parent"
         android:layout_height="24dp"
         android:background="?android:attr/listDivider"
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Donuts"
+            android:text="@string/donuts"
             app:iconPadding="8dp" />
 
         <Button
@@ -35,14 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Coffee" />
+            android:text="@string/coffee" />
 
         <Button
             android:id="@+id/buttonSandwich"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sandwiches" />
+            android:text="@string/sandwiches" />
 
     </LinearLayout>
 
@@ -56,14 +56,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Current Order" />
+            android:text="@string/current_order" />
 
         <Button
             android:id="@+id/buttonAllOrders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="All Orders" />
+            android:text="@string/all_orders" />
     </LinearLayout>
 
     <View
