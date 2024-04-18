@@ -1,5 +1,7 @@
 package rucafe.ordermanager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -100,25 +102,43 @@ public class DonutFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Test", Toast.LENGTH_SHORT).show();
-                Order curOrder = orderList.getCurOrder();
-                for (Donut selectedDonut : selectedDonuts) {
-                    if (selectedDonut.getQuantity() > 0) {
-                        if (curOrder.find(selectedDonut) == null) {
-                            curOrder.addItem(selectedDonut);
-                        } else {
-                            curOrder.find(selectedDonut).setQuantity(curOrder.find(selectedDonut).getQuantity() + selectedDonut.getQuantity());
-                        }
-                    }
-                }
-                for (MenuItem menuItem : curOrder.getItems()) {
-                    Toast.makeText(getContext(), menuItem.toString(), Toast.LENGTH_SHORT).show();
-                }
-                selectedDonuts.clear();
-                adapter.resetSpinners();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Do you want to add selected donuts to the current order?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                addItemsToOrder();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
             }
         });
 
         return view;
+    }
+
+    private void addItemsToOrder() {
+        Toast.makeText(getContext(), "Toast Test", Toast.LENGTH_SHORT).show();
+        Order curOrder = orderList.getCurOrder();
+        for (Donut selectedDonut : selectedDonuts) {
+            if (selectedDonut.getQuantity() > 0) {
+                if (curOrder.find(selectedDonut) == null) {
+                    curOrder.addItem(selectedDonut);
+                } else {
+                    curOrder.find(selectedDonut).setQuantity(curOrder.find(selectedDonut).getQuantity() + selectedDonut.getQuantity());
+                }
+            }
+        }
+        for (MenuItem menuItem : curOrder.getItems()) {
+            Toast.makeText(getContext(), menuItem.toString(), Toast.LENGTH_SHORT).show();
+        }
+        selectedDonuts.clear();
+        adapter.resetSpinners();
     }
 }
