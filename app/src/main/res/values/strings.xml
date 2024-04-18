@@ -10,4 +10,10 @@
     <string name="subtotal">SubTotal:</string>
     <string name="add_to_order">Add to Order</string>
     <string name="order_donuts">Order Donuts</string>
+    <string name="irish_cream">Irish Cream</string>
+    <string name="caramel">Caramel</string>
+    <string name="french_vanilla">French Vanilla</string>
+    <string name="mocha">Mocha</string>
+    <string name="sweet_cream">Sweet Cream</string>
+    <string name="order_coffee">Order Coffee</string>
 </resources>

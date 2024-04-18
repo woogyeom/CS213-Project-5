@@ -93,11 +93,11 @@ public class DonutFragment extends Fragment {
         }
 
         adapter = new DonutAdapter(donutOptions);
-        adapter.setSubtotalTextView(view.findViewById(R.id.subtotal));
+        adapter.setSubtotalTextView(view.findViewById(R.id.donutSubtotal));
         recyclerView.setAdapter(adapter);
 
-        TextView subtotalTextView = view.findViewById(R.id.subtotal);
-        Button button = view.findViewById(R.id.add_to_order);
+        TextView subtotalTextView = view.findViewById(R.id.donutSubtotal);
+        Button button = view.findViewById(R.id.donut_add_to_order);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

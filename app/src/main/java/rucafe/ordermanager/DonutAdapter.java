@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHol
 
     public DonutAdapter(ArrayList<String> donutList) {
         this.donutList = donutList;
-        this.quantityList = Arrays.asList(0, 1, 2, 3, 4, 5);
+        this.quantityList = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         this.spinners = new ArrayList<>();
     }
 
@@ -42,6 +43,17 @@ public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHol
     public void onBindViewHolder(@NonNull DonutViewHolder holder, int position) {
         String donutName = donutList.get(position);
         holder.bind(donutName);
+        DonutType donutType = DonutTypeMapper.getDonutType(donutName);
+        int donutImageResource = getDonutImageResource(donutType);
+        holder.setDonutImage(donutImageResource);
+    }
+
+    private int getDonutImageResource(DonutType donutType) {
+        return switch (donutType) {
+            case YEAST -> R.drawable.yeast;
+            case CAKE -> R.drawable.cake;
+            case HOLE -> R.drawable.hole;
+        };
     }
 
     @Override
@@ -98,11 +110,13 @@ public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHol
 
     public static class DonutViewHolder extends RecyclerView.ViewHolder {
         private final TextView donutNameTextView;
+        private final ImageView donutImageView;
         private String donutName;
 
         public DonutViewHolder(@NonNull View itemView, List<Integer> quantityList, DonutAdapter adapter) {
             super(itemView);
             donutNameTextView = itemView.findViewById(R.id.donutName);
+            donutImageView = itemView.findViewById(R.id.donutImage);
             Spinner quantitySpinner = itemView.findViewById(R.id.quantitySpinner);
 
             ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<>(itemView.getContext(),
@@ -126,6 +140,10 @@ public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHol
         public void bind(String donutName) {
             this.donutName = donutName;
             donutNameTextView.setText(donutName);
+        }
+
+        public void setDonutImage(int imageResource) {
+            donutImageView.setImageResource(imageResource);
         }
     }
 
