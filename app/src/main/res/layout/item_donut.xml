@@ -30,7 +30,7 @@
     <Spinner
         android:id="@+id/quantitySpinner"
         android:layout_width="4dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="1" />
 
 </LinearLayout>
