@@ -5,11 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".AllOrdersFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="All Orders"
-        android:textAlignment="center"
-        android:textSize="48sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All Orders"
+            android:textAlignment="center"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/allOrdersList"
+            android:layout_width="match_parent"
+            android:layout_height="492dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp" />
+
+        <Button
+            android:id="@+id/removeOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove Selected Order" />
+    </LinearLayout>
+
 </FrameLayout>
