@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -154,7 +155,7 @@ public class CoffeeFragment extends Fragment {
     }
 
     private void addToOrder() {
-        Coffee coffee_to_add = new Coffee(coffee.getCoffeeSize(), coffee.getAdd_ins(), coffee.getQuantity());
+        Coffee coffee_to_add = new Coffee(coffee.getCoffeeSize(), Arrays.copyOf(coffee.getAdd_ins(), coffee.getAdd_ins().length), coffee.getQuantity());
         Order curOrder = orderList.getCurOrder();
         if (curOrder.find(coffee_to_add) == null) {
             curOrder.addItem(coffee_to_add);
@@ -162,7 +163,6 @@ public class CoffeeFragment extends Fragment {
             curOrder.find(coffee_to_add).setQuantity(curOrder.find(coffee_to_add).getQuantity() + coffee_to_add.getQuantity());
         }
         Toast.makeText(getContext(), "Added to Order", Toast.LENGTH_SHORT).show();
-        Toast.makeText(getContext(), curOrder.getItems().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @SuppressLint("SetTextI18n")

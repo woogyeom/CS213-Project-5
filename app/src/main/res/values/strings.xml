@@ -16,4 +16,15 @@
     <string name="mocha">Mocha</string>
     <string name="sweet_cream">Sweet Cream</string>
     <string name="order_coffee">Order Coffee</string>
+    <string name="order_sandwiches">Order Sandwiches</string>
+    <string name="bagel">Bagel</string>
+    <string name="wheat_toast">Wheat Toast</string>
+    <string name="sour_dough">Sour Dough</string>
+    <string name="beef">Beef</string>
+    <string name="fish">Fish</string>
+    <string name="chicken">Chicken</string>
+    <string name="cheese">Cheese</string>
+    <string name="lettuce">Lettuce</string>
+    <string name="tomato">Tomato</string>
+    <string name="onion">Onion</string>
 </resources>

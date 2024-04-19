@@ -76,6 +76,10 @@ public class Sandwich extends MenuItem{
         return add_ons;
     }
 
+    public void setAdd_ons(int id, boolean bool) {
+        add_ons[id] = bool;
+    }
+
     /**
      * Sets the additional toppings for the sandwich.
      *

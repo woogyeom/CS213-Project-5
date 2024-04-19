@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Order Sandwiches"
+            android:text="@string/order_sandwiches"
             android:textAlignment="center"
             android:textSize="48sp"
             android:textStyle="bold" />
@@ -30,8 +30,10 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/breadRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:checkedButton="@id/bagel"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -39,21 +41,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Bagel" />
+                    android:text="@string/bagel" />
 
                 <RadioButton
                     android:id="@+id/wheatToast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Wheat Toast" />
+                    android:text="@string/wheat_toast" />
 
                 <RadioButton
                     android:id="@+id/sourDough"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sour Dough" />
+                    android:text="@string/sour_dough" />
             </RadioGroup>
 
         </LinearLayout>
@@ -64,8 +66,10 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/proteinRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:checkedButton="@id/beef"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -73,21 +77,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Beef" />
+                    android:text="@string/beef" />
 
                 <RadioButton
                     android:id="@+id/fish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Fish" />
+                    android:text="@string/fish" />
 
                 <RadioButton
                     android:id="@+id/chicken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Chicken" />
+                    android:text="@string/chicken" />
             </RadioGroup>
         </LinearLayout>
 
@@ -101,28 +105,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cheese" />
+                android:text="@string/cheese" />
 
             <CheckBox
                 android:id="@+id/lettuce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Lettuce" />
+                android:text="@string/lettuce" />
 
             <CheckBox
                 android:id="@+id/tomato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tomato" />
+                android:text="@string/tomato" />
 
             <CheckBox
                 android:id="@+id/onion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Onion" />
+                android:text="@string/onion" />
         </LinearLayout>
 
         <View
@@ -138,7 +142,7 @@
 
             <TextView
                 android:id="@+id/sandwich_subtotal"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:text="@string/subtotal" />
