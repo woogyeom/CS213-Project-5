@@ -1,64 +1,89 @@
 package rucafe.ordermanager;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CurrentOrderFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class CurrentOrderFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView subtotalTextView;
+    private TextView salesTaxTextView;
+    private TextView totalAmountTextView;
+    private RecyclerView orderItemsRecyclerView;
+    private Button removeItemButton;
+    private Button submitOrderButton;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private OrderListAdapter adapter; // This is the adapter we just created.
+    private final OrderList orderList = OrderList.getInstance();
 
     public CurrentOrderFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CurrentOrderFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CurrentOrderFragment newInstance(String param1, String param2) {
-        CurrentOrderFragment fragment = new CurrentOrderFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_order, container, false);
+        View view = inflater.inflate(R.layout.fragment_current_order, container, false);
+
+        subtotalTextView = view.findViewById(R.id.subtotal);
+        salesTaxTextView = view.findViewById(R.id.salesTax);
+        totalAmountTextView = view.findViewById(R.id.totalAmount);
+        orderItemsRecyclerView = view.findViewById(R.id.itemList);
+        removeItemButton = view.findViewById(R.id.removeItem);
+        submitOrderButton = view.findViewById(R.id.submitOrder);
+
+        adapter = new OrderListAdapter(orderList.getCurOrder().getItems());
+        orderItemsRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        orderItemsRecyclerView.setAdapter(adapter);
+
+        updateOrderSummary();
+
+        removeItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.removeSelectedItem();
+                updateOrderSummary(); // Update the subtotal, tax, and total after an item is removed.
+            }
+        });
+
+        submitOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Submit order logic (not shown here)
+                // After submission, clear the order and update UI.
+                orderList.submitOrder(orderList.getCurOrder());
+                adapter.notifyDataSetChanged();
+                updateOrderSummary();
+            }
+        });
+
+        return view;
     }
+
+
+    private void updateOrderSummary() {
+        // Assuming you have a method in Order to calculate subtotal, tax, and total.
+        Order currentOrder = orderList.getCurOrder();
+        subtotalTextView.setText(String.format("Subtotal: $%.2f", currentOrder.getSubTotal()));
+        salesTaxTextView.setText(String.format("Sales Tax: $%.2f", currentOrder.getSalesTax()));
+        totalAmountTextView.setText(String.format("Total: $%.2f", currentOrder.getTotalAmount()));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Refresh the list in case any items have changed.
+        adapter.notifyDataSetChanged();
+        updateOrderSummary();
+    }
+
+
 }

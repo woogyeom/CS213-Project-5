@@ -175,7 +175,9 @@ public class CoffeeFragment extends Fragment {
         }
         Toast.makeText(getContext(), "Added to Order", Toast.LENGTH_SHORT).show();
         Toast.makeText(getContext(), coffee.toString(), Toast.LENGTH_SHORT).show();
+
         reset();
+
     }
 
     @SuppressLint("SetTextI18n")
