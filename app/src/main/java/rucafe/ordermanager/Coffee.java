@@ -1,5 +1,9 @@
 package rucafe.ordermanager;
 
+import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
+
 import java.util.Arrays;
 
 /**
@@ -119,6 +123,7 @@ public class Coffee extends MenuItem {
      *
      * @return A string representation of the coffee item.
      */
+    @SuppressLint("DefaultLocale")
     @Override
     public String toString() {
         String returnString = "(COFFEE) [Item Number: " + this.getItemNumber() + "]  size: " + coffeeSize + " Add-ins:";

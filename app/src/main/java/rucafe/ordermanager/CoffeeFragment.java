@@ -153,31 +153,16 @@ public class CoffeeFragment extends Fragment {
         return view;
     }
 
-    public void reset() {
-        sweetCreamCheckBox.setChecked(false);
-        mochaCheckBox.setChecked(false);
-        frenchVanillaCheckBox.setChecked(false);
-        caramelCheckBox.setChecked(false);
-        irishCreamCheckBox.setChecked(false);
-
-        coffeeSizeSpinner.setSelection(0);
-        coffeeQuantitySpinner.setSelection(0);
-
-        coffee = new Coffee(CoffeeSize.SHORT, new boolean[]{false, false, false, false, false}, 1);
-    }
-
     private void addToOrder() {
+        Coffee coffee_to_add = new Coffee(coffee.getCoffeeSize(), coffee.getAdd_ins(), coffee.getQuantity());
         Order curOrder = orderList.getCurOrder();
-        if (curOrder.find(coffee) == null) {
-            curOrder.addItem(coffee);
+        if (curOrder.find(coffee_to_add) == null) {
+            curOrder.addItem(coffee_to_add);
         } else {
-            curOrder.find(coffee).setQuantity(curOrder.find(coffee).getQuantity() + coffee.getQuantity());
+            curOrder.find(coffee_to_add).setQuantity(curOrder.find(coffee_to_add).getQuantity() + coffee_to_add.getQuantity());
         }
         Toast.makeText(getContext(), "Added to Order", Toast.LENGTH_SHORT).show();
-        Toast.makeText(getContext(), coffee.toString(), Toast.LENGTH_SHORT).show();
-
-        reset();
-
+        Toast.makeText(getContext(), curOrder.getItems().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @SuppressLint("SetTextI18n")
