@@ -61,6 +61,10 @@ public class Coffee extends MenuItem {
         this.add_ins = add_ins;
     }
 
+    public void setAdd_in(int id, boolean bool) {
+        add_ins[id] = bool;
+    }
+
     /**
      * Retrieves the quantity of the coffee.
      *

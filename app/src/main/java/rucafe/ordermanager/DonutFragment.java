@@ -124,7 +124,6 @@ public class DonutFragment extends Fragment {
     }
 
     private void addItemsToOrder() {
-        Toast.makeText(getContext(), "Toast Test", Toast.LENGTH_SHORT).show();
         Order curOrder = orderList.getCurOrder();
         for (Donut selectedDonut : selectedDonuts) {
             if (selectedDonut.getQuantity() > 0) {
@@ -135,9 +134,7 @@ public class DonutFragment extends Fragment {
                 }
             }
         }
-        for (MenuItem menuItem : curOrder.getItems()) {
-            Toast.makeText(getContext(), menuItem.toString(), Toast.LENGTH_SHORT).show();
-        }
+        Toast.makeText(getContext(), "Added to Order", Toast.LENGTH_SHORT).show();
         selectedDonuts.clear();
         adapter.resetSpinners();
     }
