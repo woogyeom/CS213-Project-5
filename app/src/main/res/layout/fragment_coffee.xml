@@ -81,12 +81,12 @@
         <Spinner
             android:id="@+id/coffeeSize"
             android:layout_width="match_parent"
-            android:layout_height="27dp" />
+            android:layout_height="45dp" />
 
         <Spinner
             android:id="@+id/coffeeQuantity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="45dp" />
 
         <View
             android:id="@+id/divider5"
