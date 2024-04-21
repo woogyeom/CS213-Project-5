@@ -7,4 +7,4 @@
     android:padding="16dp"
     android:textAppearance="?android:attr/textAppearanceListItem"
     android:gravity="center_vertical"
-    android:text="Order"/>
+    android:text="@string/order"/>

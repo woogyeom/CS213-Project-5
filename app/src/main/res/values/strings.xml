@@ -27,4 +27,11 @@
     <string name="lettuce">Lettuce</string>
     <string name="tomato">Tomato</string>
     <string name="onion">Onion</string>
+    <string name="sales_tax">Sales Tax:</string>
+    <string name="total_amount">Total Amount:</string>
+    <string name="remove_item">Remove Item</string>
+    <string name="submit_order">Submit Order</string>
+    <string name="donut_name">Donut Name</string>
+    <string name="order">Order</string>
+    <string name="remove_selected_order">Remove Selected Order</string>
 </resources>

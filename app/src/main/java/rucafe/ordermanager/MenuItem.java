@@ -1,5 +1,7 @@
 package rucafe.ordermanager;
 
+import androidx.annotation.NonNull;
+
 /**
  * Abstract class representing a menu item.
  *
@@ -27,6 +29,7 @@ public abstract class MenuItem {
      *
      * @return A string representation of the item.
      */
+    @NonNull
     public abstract String toString();
 
     /**

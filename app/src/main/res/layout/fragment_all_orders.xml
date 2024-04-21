@@ -8,12 +8,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="All Orders"
+            android:text="@string/all_orders"
             android:textAlignment="center"
             android:textSize="48sp"
             android:textStyle="bold" />
@@ -31,7 +32,7 @@
             android:id="@+id/removeOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Remove Selected Order" />
+            android:text="@string/remove_selected_order" />
     </LinearLayout>
 
 </FrameLayout>

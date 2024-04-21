@@ -28,7 +28,7 @@
             android:id="@+id/donut_options"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_weight="0"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_weight="0" />
 
         <View
             android:id="@+id/divider2"
