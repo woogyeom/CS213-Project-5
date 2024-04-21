@@ -60,6 +60,7 @@ public class CurrentOrderFragment extends Fragment {
                 // Submit order logic (not shown here)
                 // After submission, clear the order and update UI.
                 orderList.submitOrder(orderList.getCurOrder());
+                adapter.setItems(orderList.getCurOrder().getItems()); // refresh list
                 adapter.notifyDataSetChanged();
                 updateOrderSummary();
             }
@@ -81,6 +82,7 @@ public class CurrentOrderFragment extends Fragment {
     public void onResume() {
         super.onResume();
         // Refresh the list in case any items have changed.
+        adapter.setItems(orderList.getCurOrder().getItems()); // refresh list
         adapter.notifyDataSetChanged();
         updateOrderSummary();
     }

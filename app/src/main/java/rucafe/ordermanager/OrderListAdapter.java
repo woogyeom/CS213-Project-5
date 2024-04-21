@@ -60,4 +60,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             itemTextView = itemView.findViewById(R.id.itemTextView); // Make sure you have a TextView with this ID in your layout.
         }
     }
+
+    public void setItems(List<MenuItem> newItems) {
+        items = newItems;
+        selectedItemPosition = -1; // Reset selection
+    }
 }
