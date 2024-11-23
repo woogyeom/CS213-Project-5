@@ -1,30 +1,24 @@
-In this project, we designed and developed a flight management system for Group 24. The system allows users to search for flights, make reservations, view past and upcoming flights, and even join waiting lists if flights are fully booked. We built a robust database and integrated it with a simple web interface to ensure efficient management of users, flights, and airport information.
+# Cafe Order Management System with Android Studio (Project #5)
 
-Key functionalities include: 
+This project builds on the previous cafe ordering system, transitioning from JavaFX to Android Studio to create a mobile application. The project focuses on providing an intuitive and interactive experience for customers and cafe staff by utilizing Android's native features for managing menu items, customer orders, and administrative tasks.
 
-1. **User Features**:
-   - Search for flights between airports, including options for one-way, round-trip, and flexible dates.
-   - Sort and filter flight search results by criteria like price, flight duration, and take-off/landing time.
-   - Make flight reservations, join waiting lists, view booking history, and receive alerts for seat availability.
-   - Post questions to customer representatives.
+Key Features
 
-2. **Admin Features**:
-   - Add, edit, or delete customer and customer representative accounts.
-   - Generate sales reports for specific months and produce summaries of revenue by flight, airline, or customer.
-   - List reservations by flight number or customer, and identify the customer who generated the most revenue.
-   - Identify the most active flights based on ticket sales.
-
-3. **Customer Representative Features**:
-   - Make and edit flight reservations on behalf of users.
-   - Add, edit, or delete aircraft, airport, and flight information.
-   - Retrieve waiting lists and produce a list of flights for a given airport.
-   - Respond to user questions.
-
-The system ensures seamless data storage, easy access, and efficient management of all relevant aviation-related data, providing a comprehensive and user-friendly experience for both customers and administrators.
-
-**Credits**:
-This project was completed with contributions from the following team members on Discord:
-- good morning*good bye
-- Jeeva Ramasamy(SuperShadow)
-- Woogyeom Sim(Woogy)
-- yesowitz1
+1. **Menu Item Management**:
+   - Add, edit, or remove menu items (Donuts, Coffee, Sandwiches).
+   - Manage different attributes of items such as flavors, sizes, types, and quantities.
+2. **Order Management**:
+   - Create new orders, edit existing ones, or remove orders.
+   - Register different menu items in an order with specific attributes and quantities.
+   - Keep track of all orders and manage them efficiently.
+3. **Data Display**:
+   - View menu items and orders with detailed information including item types, attributes, and quantities.
+   - Display orders in real-time for easy management.
+4. **Administrative Tools**:
+   - Import/export order data for record keeping.
+   - Generate detailed order summaries and reports.
+5. **Android Studio Integration**:
+   - Interactive mobile UI for creating and managing orders.
+   - Real-time updates to the list of current orders.
+   - Visual representation of order details for easy management and tracking.
+   - Utilize Android features such as ListView for displaying orders and intuitive navigation for order management.
