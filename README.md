@@ -1,5 +1,5 @@
 # Cafe Order Management System with Android Studio (Project #5)
-![image](https://github.com/user-attachments/assets/d071d283-4922-479e-98be-6bd1d9c40bd3)
+![image](https://github.com/user-attachments/assets/bb2b1b4d-3902-4a8b-aee9-11644d8c736a)
 
 This project builds on the previous cafe ordering system, transitioning from JavaFX to Android Studio to create a mobile application. The project focuses on providing an intuitive and interactive experience for customers and cafe staff by utilizing Android's native features for managing menu items, customer orders, and administrative tasks.
 
