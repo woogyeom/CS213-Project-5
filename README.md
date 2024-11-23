@@ -25,6 +25,6 @@ The system ensures seamless data storage, easy access, and efficient management 
 **Credits**:
 This project was completed with contributions from the following team members on Discord:
 - good morning*good bye
-- SuperShadow
-- Woogy
+- Jeeva Ramasamy(SuperShadow)
+- Woogyeom Sim(Woogy)
 - yesowitz1
